@@ -5,7 +5,7 @@ const cors =require('cors');
 const app=express();
 app.use(cors({
     origin:'http://localhost:4200',
-    credentials:true
+     credentials:true
 }))
 
 app.use(session({
@@ -62,6 +62,14 @@ app.post('/login',(req,res)=>{
     })
     //res.status(result.statusCode).json(result);
 })
+app.post('/logout',(req,res)=>{
+    dataService.logout(req);
+    res.status(200).json({
+        status:true,
+        statusCode:200,
+        message:'user logged out'
+    });
+})
 app.post('/deposit',authMiddleware, (req,res)=>{
     
     dataService.deposit(req.body.acno1,req.body.pin,req.body.amt)
@@ -96,7 +104,7 @@ app.delete('/transactions/:id',authMiddleware, (req,res)=>{
 app.patch('/',(req,res)=>{
     res.send("patch method");
 })
-
-app.listen(3000,()=>{
-    console.log("server started at port 3000");
+const port = 3000
+app.listen(port,()=>{
+    console.log("server started at port "+port);
 })

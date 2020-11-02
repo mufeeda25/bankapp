@@ -39,7 +39,10 @@ return{
 });
 }
     
-
+const logout=(req)=>{
+  req.session.currentUser="";
+  return;
+}
   
   
 
@@ -273,6 +276,7 @@ return{
 // }
 module.exports={
     register,
+    logout,
     login,
     deposit,
     withdraw,
