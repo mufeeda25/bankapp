@@ -23,7 +23,7 @@ const register=(name,acno,pin,password)=>{
       }
       }
 const newUser = new db.User({
-  name,
+  name ,
   acno,
   pin,
   password,
