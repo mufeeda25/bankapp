@@ -7,11 +7,11 @@ let  accountDetails
     1004:{name:"user4", acno:1004, pin:4567, password:'userfour', balance:4000,transactions:[]},
     1005:{name:"user5", acno:1005, pin:5678, password:'userfive', balance:5000,transactions:[]},
 };
-let currentUser;
+let currentUser ;
 
 const register=(name,acno,pin,password)=>{
-  return db.User.findOne({
-    acno
+  return db.User. findOne({
+     acno
   })
   .then(user=>{
     console.log(user);
